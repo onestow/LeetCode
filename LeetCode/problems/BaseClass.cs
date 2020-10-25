@@ -10,7 +10,7 @@ namespace LeetCode.problems
     {
         public static BaseClass GetInst()
         {
-            return new _52();
+            return new _845();
         }
         protected virtual void Assert<T>(T o1, T o2)
         {
@@ -31,6 +31,15 @@ namespace LeetCode.problems
                 throw new Exception(o1 + " " + o2);
             }
 
+        }
+
+        protected T[][] Build2DArray<T>(T[] arr, int len2)
+        {
+            var len1 = arr.Length / len2;
+            var arr2 = new T[len1][];
+            for (int i = 0; i < len1; i++)
+                arr2[i] = arr.Skip(i * len2).Take(len2).ToArray();
+            return arr2;
         }
 
         public abstract void Run();
@@ -105,6 +114,18 @@ namespace LeetCode.problems
             for (int i = vals.Length - 1; i >= 0; i--)
                 prev = new ListNode(vals[i], prev);
             return prev;
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            var node = this;
+            while (node != null)
+            {
+                sb.Append(node.val + ", ");
+                node = node.next;
+            }
+            return sb.ToString();
         }
     }
 
