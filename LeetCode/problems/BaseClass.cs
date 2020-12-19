@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LeetCode.problems._20201129;
+using LeetCode.problems._20201206;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,7 @@ namespace LeetCode.problems
     {
         public static BaseClass GetInst()
         {
-            return new _845();
+            return new _48();
         }
         protected virtual void Assert<T>(T o1, T o2)
         {
